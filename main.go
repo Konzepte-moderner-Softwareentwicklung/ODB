@@ -13,6 +13,8 @@ func main() {
 	}
 	defer client.Close()
 
-	res := client.GetTelemetry()
-	log.Printf("Telemetry: %+v", res)
+	results := client.GetTelemetry()
+	for name, result := range results {
+		log.Printf("%s: %+v", name, result)
+	}
 }
